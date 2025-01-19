@@ -8,24 +8,29 @@ guess = window.prompt(`Guess a number between ${min} - ${max}`);
     console.log(rand);
     while(run)
     {
-        if(guess>0 && guess<10){
-        if(rand == guess){
-            window.alert('Congratulation!...You won!...');
-            run = false;
-        }else if(rand>guess)
-        {
-            window.alert('Too Low! Try Again...');
+        if(isNaN(guess)){
+            window.alert('Enter a number....!!!');
             guess = window.prompt(`Guess a number between ${min} - ${max}`);
-        }else
-            {
-                window.alert('Too High! Try Again...');
-                guess = window.prompt(`Guess a number between ${min} - ${max}`);
-            }
-        }else{
+        }else if(guess<0 || guess>100){
             window.alert('Enter a valid number within range..!');
             guess = window.prompt(`Guess a number between ${min} - ${max}`);
+        }else{
+            
+                guess = Number(guess);
+                if(rand == guess){
+                    window.alert('Congratulation!...You won!...');
+                    run = false;
+                }else if(rand>guess)
+                {
+                    window.alert('Too Low! Try Again...');
+                    guess = window.prompt(`Guess a number between ${min} - ${max}`);
+                }else
+                {
+                    window.alert('Too High! Try Again...');
+                    guess = window.prompt(`Guess a number between ${min} - ${max}`);
+                }
         }
-        
-    }
+    }   
+
 
 
